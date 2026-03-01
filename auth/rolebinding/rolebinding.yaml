@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: pod-read-access
-  namespace: 1fs158
+  namespace: lfs158
 subjects:
 - kind: User
   name: bob
