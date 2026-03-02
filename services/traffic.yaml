@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-svc
+spec:
+  selector:
+   app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+      nodePort: 32233
+  type: ClusterIP
+  internalTrafficPolicy: Local
+  externalTrafficPolicy: Local
+
+
+
+
+# kubectl expose deploy frontend --name=frontend-svc \
+# --port=80 --target-port=5000 --type=NodePort 
+
+# kubectl create service nodeport frontend-svc \
+# --tcp=80:5000 --node-port=32233
+
+
+# kubectl run pod-hello --image=pbitty/hello-from:latest --port=80 --expose=true
+# kubectl get po,svc,ep --show-labels
