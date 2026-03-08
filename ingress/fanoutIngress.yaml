@@ -3,28 +3,25 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/service-upstream: "true"
-  name: virtual-host-ingress
+  name: fan-out-ingress
   namespace: default
 spec:
   ingressClassName: nginx
   rules:
-  - host: blue.example.com
+  - host: example.com
     http:
       paths:
-      - backend:
+      - path: /blue
+        backend:
           service:
             name: webserver-blue-svc
             port:
               number: 80
-        path: /
         pathType: ImplementationSpecific
-  - host: green.example.com
-    http:
-      paths:
-      - backend:
+      - path: /green
+        backend:
           service:
             name: webserver-green-svc
             port:
               number: 80
-        path: /
         pathType: ImplementationSpecific
