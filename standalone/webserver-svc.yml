@@ -1,3 +1,9 @@
+# Easier way to view the service when using the Docker driver
+# kubectl expose deployment webserver --name=web-lb --type=LoadBalancer --port=8080
+# minikube tunnel
+# kubectl get services
+
+
 # A service will find and connect Pods based on the Selector
 apiVersion: v1
 kind: Service
