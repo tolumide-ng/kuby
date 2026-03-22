@@ -1,4 +1,4 @@
-[init] Using Kubernetes version: v1.35.2
+[init] Using Kubernetes version: v1.35.3
 [preflight] Running pre-flight checks
 [preflight] Pulling images required for setting up a Kubernetes cluster
 [preflight] This might take a minute or two, depending on the speed of your internet connection
@@ -36,20 +36,20 @@
 [kubelet-start] Starting the kubelet
 [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests"
 [kubelet-check] Waiting for a healthy kubelet at http://127.0.0.1:10248/healthz. This can take up to 4m0s
-[kubelet-check] The kubelet is healthy after 501.296446ms
+[kubelet-check] The kubelet is healthy after 501.947952ms
 [control-plane-check] Waiting for healthy control plane components. This can take up to 4m0s
 [control-plane-check] Checking kube-apiserver at https://192.168.178.25:6443/livez
 [control-plane-check] Checking kube-controller-manager at https://127.0.0.1:10257/healthz
 [control-plane-check] Checking kube-scheduler at https://127.0.0.1:10259/livez
-[control-plane-check] kube-controller-manager is healthy after 1.005361873s
-[control-plane-check] kube-scheduler is healthy after 2.169257814s
-[control-plane-check] kube-apiserver is healthy after 4.002013093s
+[control-plane-check] kube-controller-manager is healthy after 1.003572633s
+[control-plane-check] kube-scheduler is healthy after 1.521654812s
+[control-plane-check] kube-apiserver is healthy after 3.501565902s
 [upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace
 [kubelet] Creating a ConfigMap "kubelet-config" in namespace kube-system with the configuration for the kubelets in the cluster
 [upload-certs] Skipping phase. Please see --upload-certs
 [mark-control-plane] Marking the node tolumi as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]
 [mark-control-plane] Marking the node tolumi as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]
-[bootstrap-token] Using token: mq4l43.5g5kwmoxsvom4y44
+[bootstrap-token] Using token: jkwb02.wv66zckm1apt8ppp
 [bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles
 [bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to get nodes
 [bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
@@ -78,5 +78,5 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join 192.168.178.25:6443 --token mq4l43.5g5kwmoxsvom4y44 \
-	--discovery-token-ca-cert-hash sha256:5f4e5ffa59ede532c1e8cc584227a018050bfa2d2ca944e536fbeaae20d32e17 
+kubeadm join 192.168.178.25:6443 --token jkwb02.wv66zckm1apt8ppp \
+	--discovery-token-ca-cert-hash sha256:a2b08c58ae3415659a8d07c604f2ba8adb7c9414e91d3e8648bbb8b0bf77b070 
