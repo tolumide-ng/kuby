@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+spec:
+  containers:
+    - name: app-container
+      image: nginx
+      volumeMounts:
+      - mountPath: /usr/share/nginx/html
+        name: app-storage
+      volumes:
+      - name: app-storage
+        persistentVolumeClaim:
+          claimName: app-data-pvc
+
+# Here, the Pod mounts the PVC at /usr/share/nginx/html. Any data written to this path will persist even if the Pod is restarted or rescheduled on a different node

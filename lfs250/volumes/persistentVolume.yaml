@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-nfs
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /data/nfs-storage
+    server: 192.168.1.10
+
+
+# This example define a 20Gi NFS-backend PersistentVolume that can be mounted read-write by multiple nodes 
+# simultaneously and retains its data even after the PVC is released
