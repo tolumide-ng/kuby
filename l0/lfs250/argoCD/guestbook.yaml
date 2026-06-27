@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1a1pha1
+kind: ApplicationSet
+Metadata:
+    name: guestook-multi
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: engineering-dev
+        url: https://1.2.3.4
+      - cluster: engineering-prod
+        url: https://2.4.6.8
+      - cluster: finance-preprod
+        url: https://9.8.7.6
+    template:
+     metadata:
+      name: '{{.cluster}}-guestbook'
+      spec:
+        project: default
+        source:
+          repoURL: https://github.com/tolumide-ng/kuby
+          targetRevision: HEAD
+          path: '{{.cluster}}/manifests'
+        destination:
+          server: '{{.url}}'
+          namespace: guestbook

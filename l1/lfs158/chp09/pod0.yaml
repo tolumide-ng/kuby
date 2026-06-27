@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: firstrun
+  name: firstrun
+spec:
+  containers:
+    - image: nginx:1.22.1
+      name: firstrun
+      ports:
+        - containerPort: 80
+      resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
