@@ -3,7 +3,7 @@ const os = require('os');
 const fs = require('fs');
 
 const version = "0.1";
-const listenPort = 8080;
+const listenPort = Number(process.env.PORT || 8080);
 
 function sendResponse(status, contentType, encoding, body, response) {
     response.writeHead(status, {'Content-Type': contentType});

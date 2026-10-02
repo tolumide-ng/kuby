@@ -6,9 +6,12 @@ spec:
   containers:
   - name: kiada
     image: tolumide/kiada:0.1
+    env:
+    - name: PORT
+      value: "8081"
     ports:
     - name: http
-      containerPort: 8080
+      containerPort: 8081
   - name: envoy
     image: tolumide/kiada-ssl-proxy:0.1
     ports:
