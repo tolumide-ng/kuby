@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-annotations
+  annotations:
+    created-by: Tolumide Shopein <tolumideshopein@xmail.com>
+    managed: 'yes'
+    revision: '3'
+# ...m
