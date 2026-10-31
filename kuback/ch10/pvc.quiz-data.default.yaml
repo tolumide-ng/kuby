@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: quiz-data
 spec:
+  # If the StorageClass is nonexistent, then this claim would be stuck in Pending
+  # storageClassName: premium-rwo 
   resources:
     requests:
       storage: 1Gi
