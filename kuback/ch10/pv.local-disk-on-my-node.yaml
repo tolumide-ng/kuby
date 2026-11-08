@@ -1,0 +1,21 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: local-disk-on-my-node
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local
+  capacity:
+    storage: 1Gi
+  local:
+    path: /tmp/my-disk
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+              - kind-worker
+              - kind-worker2
